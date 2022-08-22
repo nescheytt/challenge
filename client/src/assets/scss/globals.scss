@@ -1,0 +1,44 @@
+@import './theme';
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+	-webkit-font-smoothing: antialiased;
+	font-family: $font-text;
+	font-size: $size-text-mobile;
+	line-height: $lineheight-text-mobile;
+	color: $color-dark;
+	margin: 0;
+
+	@media (min-width: $screen-lg) {
+		font-size: $size-text-desktop;
+		line-height: $lineheight-text-desktop;
+	}
+}
+
+* {
+	box-sizing: border-box;
+
+	&:before,
+	&:after {
+		box-sizing: border-box;
+	}
+
+	&::selection {
+		background: $color-primary;
+		color: $color-light;
+	}
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

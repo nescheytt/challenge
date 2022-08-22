@@ -1,0 +1,208 @@
+@import '../theme';
+
+@mixin gutter-default {
+	margin-right: $margin-row-default;
+	margin-left: $margin-row-default;
+
+	& > * {
+		padding-right: $gutter-col-default;
+		padding-left: $gutter-col-default;
+	}
+}
+
+@mixin gutter-medium {
+	margin-right: $margin-row-medium;
+	margin-left: $margin-row-medium;
+
+	& > * {
+		padding-right: $gutter-col-medium;
+		padding-left: $gutter-col-medium;
+	}
+}
+
+@mixin gutter-big {
+	margin-right: $margin-row-big;
+	margin-left: $margin-row-big;
+
+	& > * {
+		padding-right: $gutter-col-big;
+		padding-left: $gutter-col-big;
+	}
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	@include gutter-default;
+
+	&.gutter-medium {
+		@include gutter-medium;
+	}
+
+	&.gutter-big {
+		@include gutter-big;
+	}
+
+	@media (min-width: $screen-xs) {
+		&.gutter-xs-default {
+			@include gutter-default;
+		}
+
+		&.gutter-xs-medium {
+			@include gutter-medium;
+		}
+
+		&.gutter-xs-big {
+			@include gutter-big;
+		}
+	}
+
+	@media (min-width: $screen-sm) {
+		&.gutter-sm-default {
+			@include gutter-default;
+		}
+
+		&.gutter-sm-medium {
+			@include gutter-medium;
+		}
+
+		&.gutter-sm-big {
+			@include gutter-big;
+		}
+	}
+
+	@media (min-width: $screen-md) {
+		&.gutter-md-default {
+			@include gutter-default;
+		}
+
+		&.gutter-md-medium {
+			@include gutter-medium;
+		}
+
+		&.gutter-md-big {
+			@include gutter-big;
+		}
+	}
+
+	@media (min-width: $screen-lg) {
+		&.gutter-lg-default {
+			@include gutter-default;
+		}
+
+		&.gutter-lg-medium {
+			@include gutter-medium;
+		}
+
+		&.gutter-lg-big {
+			@include gutter-big;
+		}
+	}
+
+	@media (min-width: $screen-xl) {
+		&.gutter-xl-default {
+			@include gutter-default;
+		}
+
+		&.gutter-xl-medium {
+			@include gutter-medium;
+		}
+
+		&.gutter-xl-big {
+			@include gutter-big;
+		}
+	}
+
+	@media (min-width: $screen-xxl) {
+		&.gutter-xxl-default {
+			@include gutter-default;
+		}
+
+		&.gutter-xxl-medium {
+			@include gutter-medium;
+		}
+
+		&.gutter-xxl-big {
+			@include gutter-big;
+		}
+	}
+
+	@media (min-width: $screen-xxxl) {
+		&.gutter-xxxl-default {
+			@include gutter-default;
+		}
+
+		&.gutter-xxxl-medium {
+			@include gutter-medium;
+		}
+
+		&.gutter-xxxl-big {
+			@include gutter-big;
+		}
+	}
+}
+
+.flex {
+	display: flex;
+}
+
+.block {
+	display: block;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.align-items-stretch {
+	align-items: stretch;
+}
+
+.align-items-center {
+	align-items: center;
+}
+
+.align-items-flex-start {
+	align-items: flex-start;
+}
+
+.align-items-flex-end {
+	align-items: flex-end;
+}
+
+.align-items-baseline {
+	align-items: baseline;
+}
+
+.align-items-baseline {
+	align-items: baseline;
+}
+
+.align-items-initial {
+	align-items: initial;
+}
+
+.justify-content-flex-start {
+	justify-content: flex-start;
+}
+
+.justify-content-flex-end {
+	justify-content: flex-end;
+}
+
+.justify-content-center {
+	justify-content: center;
+}
+
+.justify-content-space-between {
+	justify-content: space-between;
+}
+
+.justify-content-space-around {
+	justify-content: space-around;
+}
+
+.justify-content-initial {
+	justify-content: initial;
+}
