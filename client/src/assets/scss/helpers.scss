@@ -1,0 +1,23 @@
+@import './theme.scss';
+
+@mixin font-input {
+	font-size: $size-input-mobile;
+	line-height: $lineheight-input-mobile;
+	font-weight: 400;
+
+	@media (min-width: $screen-lg) {
+		font-size: $size-input-desktop;
+		line-height: $lineheight-input-desktop;
+	}
+}
+
+@mixin font-input-big {
+	font-size: $size-input-big-mobile;
+	line-height: $lineheight-input-big-mobile;
+	font-weight: 400;
+
+	@media (min-width: $screen-lg) {
+		font-size: $size-input-big-desktop;
+		line-height: $lineheight-input-big-desktop;
+	}
+}
