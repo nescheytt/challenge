@@ -1,5 +1,15 @@
 @import '../theme';
 
+@mixin gutter-not {
+	margin-right: 0;
+	margin-left: 0;
+
+	& > * {
+		padding-right: 0;
+		padding-left: 0;
+	}
+}
+
 @mixin gutter-default {
 	margin-right: $margin-row-default;
 	margin-left: $margin-row-default;
@@ -42,6 +52,10 @@
 
 	&.gutter-big {
 		@include gutter-big;
+	}
+
+	&.gutter-not {
+		@include gutter-not;
 	}
 
 	@media (min-width: $screen-xs) {

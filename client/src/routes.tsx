@@ -1,12 +1,12 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import List from './pages/list'
+import SearchResult from './pages/search-result'
 
 
 const Root = () => {
   return (
     <Routes>
-      <Route path="/" element={<List />} />
+      <Route path="/" element={<SearchResult />} />
     </Routes>
   )
 }
