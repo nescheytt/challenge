@@ -1,0 +1,57 @@
+@import '../../assets/scss/theme.scss';
+
+.card {
+  display: flex;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
+
+  .image-product {
+    margin-right: 16px;
+  }
+
+  .data-container {
+    width: 100%;
+
+    .first-data-container {
+      margin: 16px 0px 32px;
+      display: grid;
+      grid-template-areas: "price" "location";
+      align-items: end;
+
+      .price {
+        font-size: 24px;
+        line-height: 28px;
+        grid-area: price;
+        grid-row: 1;
+      }
+      
+      .location {
+        color: #999;
+        font-size: 12px;
+        line-height: 16px;
+        text-align: right;
+        grid-area: location;
+        grid-row: 1;
+        grid-column: col 2;
+
+        @media (min-width: $screen-lg) {
+          text-align: left;
+          grid-column: col 4 / col 6;
+        }
+      }
+    }
+
+    .title {
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+}
