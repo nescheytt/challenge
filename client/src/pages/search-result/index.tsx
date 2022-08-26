@@ -13,28 +13,28 @@ import '../../assets/scss/grid/col.scss'
 
 const mockCard = [
   {
-    url: '/',
+    url: '/items',
     image: 'https://http2.mlstatic.com/D_NQ_NP_912926-MLA50742293198_072022-O.webp',
     price: '$1.980',
     title: 'Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
     location: 'Capital Federal',
   },
   {
-    url: '/',
+    url: '/items',
     image: 'https://http2.mlstatic.com/D_NQ_NP_912926-MLA50742293198_072022-O.webp',
     price: '$1.980',
     title: 'Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
     location: 'Capital Federal',
   },
   {
-    url: '/',
+    url: '/items',
     image: 'https://http2.mlstatic.com/D_NQ_NP_912926-MLA50742293198_072022-O.webp',
     price: '$1.980',
     title: 'Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
     location: 'Capital Federal',
   },
   {
-    url: '/',
+    url: '/items',
     image: 'https://http2.mlstatic.com/D_NQ_NP_912926-MLA50742293198_072022-O.webp',
     price: '$1.980',
     title: 'Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
@@ -61,7 +61,7 @@ const List = () => {
         </div>
       </div>
     </Layout>
-  );
+  )
 }
 
 export default List
