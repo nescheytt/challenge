@@ -23,7 +23,6 @@ interface CardProps {
 }
  
 const Card = ({ item }: CardProps) => {
-  console.log('item', item)
   const freeShipping = item.free_shipping
   const formato = new Intl.NumberFormat('de-DE')
 

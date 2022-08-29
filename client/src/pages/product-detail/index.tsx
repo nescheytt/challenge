@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 // components
 import Layout from '../../components/layouts'
@@ -9,43 +10,70 @@ import '../../assets/scss/buttons.scss'
 import './styles.scss'
 
 const ProductDetail = () => {
+  const { id } = useParams()
+  const [item, setItem] = useState<{
+    condition: string
+    description: string
+    picture: string
+    price: {
+      amount: number
+    }
+    soldQuantity: number
+    title: string
+  }>()
+  const [categories, setCategories] = useState<any>()
+
+  const formato = new Intl.NumberFormat('de-DE')
+  const amount = formato.format(item?.price.amount || 0)
+
+  const fetchPost = async () => {
+    const response = await fetch(`/api/items/${id}`)
+    const data = await response.json()
+    setItem(data.item)
+    setCategories(data.categories)
+  }
+
+  useEffect(() => {
+    fetchPost()
+ }, [])
+
   return (
     <Layout>
       <div className="container fluid">
         <div className="row">
           <div className="col-12">
-            {/* <Breadcrumb /> */}
+            <Breadcrumb categories={categories} />
 
             <div className="page-product-detail">
               <div className="row">
                 <div className="col-8">
-                  <img src="https://http2.mlstatic.com/D_NQ_NP_912926-MLA50742293198_072022-O.webp" alt="product" width="100%" />
+                  <img src={item?.picture} alt="product" width="100%" />
                 </div>
 
                 <div className="col-4">
                   <div className="detail">
                     <span className="quantity-sold">
-                      Nuevo - 234 vendidos
+                      {item?.condition && 'Nuevo'}  - {item?.soldQuantity} vendidos
                     </span>
 
-                    <h1 className="title">
-                      Deco Reverse Sombrero Oxford
-                    </h1>
+                    <h1 className="title">{item?.title}</h1>
                     
-                    <span className="price">$1.980</span>
+                    <span className="price">$ {amount}</span>
                     <button type="button" className="button secondary btn-to-buy">Comprar</button>
                   </div>
                 </div>
               </div>
-
-              <div className="row">
-                <div className="col-8">
-                  <div className="description">
-                    <h2 className="title">Descripción del producto</h2>
-                    <p className="content">Graba videos 4K y captura retratos espectaculares y paisajes increíbles con el sistema de dos cámaras. Toma grandes fotos con poca luz gracias al modo Noche. Disfruta colores reales en las fotos, videos y juegos con la pantalla Liquid Retina de 6.1 pulgadas (3). Aprovecha un rendimiento sin precedentes en los juegos, la realidad aumentada y la fotografía con el chip A13 Bionic. Haz mucho más sin necesidad de volver a cargar el teléfono gracias a su batería de larga duración (2). Y no te preocupes si se moja, el iPhone 11 tiene una resistencia al agua de hasta 30 minutos a una profundidad máxima de 2 metros (1).</p>
+              
+              {item?.description && (
+                <div className="row">
+                  <div className="col-8">
+                    <div className="description">
+                      <h2 className="title">Descripción del producto</h2>
+                      <p className="content">{item?.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
