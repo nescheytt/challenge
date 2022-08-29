@@ -9,8 +9,8 @@ import ProductDetail from './pages/product-detail'
 const Root = () => {
   return (
     <Routes>
-      <Route path="/" element={<SearchResult />} />
-      <Route path="/items" element={<ProductDetail />} />
+      <Route path="/items" element={<SearchResult />} />
+      <Route path="/items/:id" element={<ProductDetail />} />
     </Routes>
   )
 }

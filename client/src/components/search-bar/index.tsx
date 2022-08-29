@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 // themes
 import '../../assets/scss/input.scss'
@@ -10,16 +11,30 @@ import './styles.scss'
 import iconSearch from '../../assets/images/ic_search.png'
 
 const SearchBar = () => {
-  const handleSearch = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const navigate = useNavigate()
+  const [searchValue, setSearchValue] = useState('')
+
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchValue(e.target.value)
+  }
+
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('send data')
+    navigate(`/items?search=${searchValue}`)
   }
 
   return (
-    <form className="form-searchbar">
-      <input type="text" className="input-searchbar" placeholder="Nunca dejes de buscar" />
+    <form className="form-searchbar" onSubmit={(e) => handleSearch(e)}>
+      <input 
+        type="text"
+        name="input-searchbar"
+        id="input-searchbar"
+        className="input-searchbar"
+        onChange={e => handleOnChange(e)}
+        placeholder="Nunca dejes de buscar"
+      />
 
-      <button type="submit" className="button-search" onClick={e => handleSearch(e)}>
+      <button type="submit" className="button-search">
         <img src={iconSearch} alt="icon-search" width="auto" height="auto" />
       </button>
     </form>
