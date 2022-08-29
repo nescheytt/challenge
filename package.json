@@ -1,13 +1,13 @@
 {
   "name": "api-meli",
   "version": "2.0.0",
-  "main": "src/index",
+  "main": "server/index",
   "author": "Nahuel Scheytt",
   "description": "API con Node.js y Express",
   "license": "ISC",
   "scripts": {
     "client": " yarn --cwd client run start ",
-    "server": "nodemon src/index.ts",
+    "server": "nodemon server/index.ts",
     "start": "concurrently \"yarn run server\" \"yarn run client\"",
     "lint": "yarn run lint"
   },
