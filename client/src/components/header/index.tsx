@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 // styles
 import './styles.scss'
@@ -13,7 +14,9 @@ const Header = () => {
       <div className="container fluid">
         <div className="row">
           <div className="col-1">
-            <img src={LogoMeli} alt="logo-meli" width="auto" height="auto" />
+            <Link to="/">
+              <img src={LogoMeli} alt="logo-meli" width="auto" height="auto" />
+            </Link>
           </div>
 
           <div className="col-11">
