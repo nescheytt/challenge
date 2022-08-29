@@ -1,12 +1,19 @@
 @import '../../assets/scss/theme.scss';
 
 .card {
-  display: flex;
+  color: #666;
   padding-bottom: 16px;
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-bottom: 1px solid #eee;
   text-decoration: none;
-  color: #666;
+
+  @media (min-width: $screen-md) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
 
   &:last-child {
     border-bottom: none;
@@ -22,10 +29,15 @@
     width: 100%;
 
     .first-data-container {
-      margin: 16px 0px 32px;
+      margin: 16px 0px;
       display: grid;
       grid-template-areas: "price" "location";
-      align-items: end;
+      align-items: center;
+
+      @media (min-width: $screen-md) {
+        margin: 16px 0px 32px;
+        align-items: flex-end;
+      }
 
       .price {
         color: #333;

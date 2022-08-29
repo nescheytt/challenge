@@ -12,7 +12,7 @@ interface BreadcrumbProps {
 const Breadcrumb = ({ categories }: BreadcrumbProps) => {
 
   if (categories?.length.toString() === '0') {
-    return <div className="breadcrumb-container">No se encontraron filtros</div>
+    return <div className="breadcrumb-container" />
   }
 
   return (

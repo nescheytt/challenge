@@ -14,7 +14,7 @@ const Header = () => {
       <div className="container">
         <div className="row">
           <div className="col-xs-2 col-md-1">
-            <Link to="/">
+            <Link to="/" className="to-home">
               <img src={LogoMeli} alt="logo-meli" width="auto" height="auto" />
             </Link>
           </div>
