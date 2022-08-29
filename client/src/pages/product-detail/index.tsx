@@ -39,18 +39,18 @@ const ProductDetail = () => {
 
   return (
     <Layout>
-      <div className="container fluid">
+      <div className="container">
         <div className="row">
           <div className="col-12">
             <Breadcrumb categories={categories} />
 
             <div className="page-product-detail">
               <div className="row">
-                <div className="col-8">
+                <div className="col-md-8">
                   <img src={item?.picture} alt="product" width="100%" />
                 </div>
 
-                <div className="col-4">
+                <div className="col-md-4">
                   <div className="detail">
                     <span className="quantity-sold">
                       {item?.condition && 'Nuevo'}  - {item?.soldQuantity} vendidos
@@ -66,7 +66,7 @@ const ProductDetail = () => {
               
               {item?.description && (
                 <div className="row">
-                  <div className="col-8">
+                  <div className="col-md-8">
                     <div className="description">
                       <h2 className="title">Descripción del producto</h2>
                       <p className="content">{item?.description}</p>

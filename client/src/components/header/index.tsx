@@ -11,15 +11,15 @@ import SearchBar from '../search-bar'
 const Header = () => {
   return (
     <div className="header">
-      <div className="container fluid">
+      <div className="container">
         <div className="row">
-          <div className="col-1">
-            <Link to="/">
+          <div className="col-xs-2 col-md-1">
+            <Link to="/" className="to-home">
               <img src={LogoMeli} alt="logo-meli" width="auto" height="auto" />
             </Link>
           </div>
 
-          <div className="col-11">
+          <div className="col-xs-10 col-md-11">
             <SearchBar />
           </div>
         </div>

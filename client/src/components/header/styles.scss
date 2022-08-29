@@ -1,4 +1,10 @@
 .header {
   background-color: #FFe600;
   padding: 7px 0px;
+
+  .to-home {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
 }

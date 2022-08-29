@@ -12,7 +12,7 @@ import emptyState from '../../assets/images/empty-state-home.svg'
 const Home = () => {
   return (
     <Layout>
-      <div className="container fluid">
+      <div className="container">
         <div className="row">
           <div className="col-12">
             <div className="page-empty-container">
