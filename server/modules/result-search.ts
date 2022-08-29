@@ -19,7 +19,7 @@ const resultSearch = (req: { query: { q: string }}, res: { send: (searchResponse
           shipping: { 
             free_shipping: boolean }
             address: { 
-              city_name: string
+              state_name: string
             }
           }) => {
         const amount = Math.floor(item.price)
@@ -35,8 +35,8 @@ const resultSearch = (req: { query: { q: string }}, res: { send: (searchResponse
           },
           picture: item.thumbnail,
           condition: item.condition,
-          free_shipping: item.shipping ? item.shipping.free_shipping : false,
-          address: item.address ? item.address.city_name : ""
+          free_shipping: item.shipping?.free_shipping || false,
+          address: item.address?.state_name || ""
         }
       })
 
