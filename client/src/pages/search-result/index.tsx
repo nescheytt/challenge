@@ -35,7 +35,7 @@ const SearchResult = () => {
 
   return (
     <Layout>
-      <div className="container fluid">
+      <div className="container">
         <div className="row">
           <div className="col-12">
             <Breadcrumb categories={categories} />
