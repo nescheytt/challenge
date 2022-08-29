@@ -11,6 +11,8 @@
 
 .breadcrumb-li {
   display: inline;
+  font-size: 14px;
+  color: #999;
 
   &:after {
     content: ">";
@@ -26,10 +28,4 @@
       margin: 0px;
     }
   }
-}
-
-.breadcrumb-link {
-  font-size: 14px;
-  color: #999;
-  text-decoration: none;
 }
