@@ -1,28 +1,43 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 
 // styles
 import './styles.scss'
 
+// images
+import ic_shipping from '../../assets/images/ic_shipping.png'
+
 interface CardProps {
-  card: {
-    url: string
-    image: string
-    price: string
+  item: {
+    id: string
+    thumbnail: string
+    price: number
     title: string
-    location: string
+    address: {
+      state_name: string
+    }
+    shipping: {
+      free_shipping: boolean
+    }
   }
 }
  
-const Card = ({ card }: CardProps) => {
+const Card = ({ item }: CardProps) => {
+  const freeShipping = item.shipping.free_shipping
+  const formato = new Intl.NumberFormat('de-DE')
+
   return (
-    <a href={card.url} className="card">
-      <img src={card.image} className="image-product" alt="preview-product" width="180px" height="180px" />
+    <Link to={"/items/" + item.id} className="card">
+      <img src={item.thumbnail} className="image-product" alt="preview-product" width="180px" height="180px" />
       <div className="data-container">
         <div className="row">
           <div className="col-12">
             <div className="first-data-container">
-              <div className="price">{card.price}</div>
-              <div className="location">{card.location}</div>
+              <div className="price">
+                $ {formato.format(item.price)}
+                {freeShipping && <img className="shipping-img" src={ic_shipping} />}
+              </div>
+              <div className="location">{item.address.state_name}</div>
             </div>
           </div>
         </div>
@@ -30,12 +45,12 @@ const Card = ({ card }: CardProps) => {
         <div className="row">
           <div className="col-4">
             <div className="title">
-              {card.title}
+              {item.title}
             </div>
           </div>
         </div>
       </div>
-    </a>
+    </Link>
   )
 }
 

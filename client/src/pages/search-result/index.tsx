@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 
 // components
 import Layout from '../../components/layouts'
@@ -11,38 +12,22 @@ import '../../assets/scss/grid/container.scss'
 import '../../assets/scss/grid/row.scss'
 import '../../assets/scss/grid/col.scss'
 
-const mockCard = [
-  {
-    url: '/items',
-    image: 'https://http2.mlstatic.com/D_NQ_NP_912926-MLA50742293198_072022-O.webp',
-    price: '$1.980',
-    title: 'Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
-    location: 'Capital Federal',
-  },
-  {
-    url: '/items',
-    image: 'https://http2.mlstatic.com/D_NQ_NP_912926-MLA50742293198_072022-O.webp',
-    price: '$1.980',
-    title: 'Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
-    location: 'Capital Federal',
-  },
-  {
-    url: '/items',
-    image: 'https://http2.mlstatic.com/D_NQ_NP_912926-MLA50742293198_072022-O.webp',
-    price: '$1.980',
-    title: 'Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
-    location: 'Capital Federal',
-  },
-  {
-    url: '/items',
-    image: 'https://http2.mlstatic.com/D_NQ_NP_912926-MLA50742293198_072022-O.webp',
-    price: '$1.980',
-    title: 'Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!',
-    location: 'Capital Federal',
-  },
-]
+const SearchResult = () => {
+  const [card, setCard] = useState<any>()
+  const [search, setSearch] = useSearchParams()
 
-const List = () => {
+  useEffect(() => {
+    const fetchPost = async () => {
+       const response = await fetch(
+          `https://api.mercadolibre.com/sites/MLA/search?q=${search.get('search')}&limit=4`
+       );
+       const data = await response.json()
+       setCard(data)
+    }
+
+    fetchPost()
+ }, [search])
+
   return (
     <Layout>
       <div className="container fluid">
@@ -51,9 +36,9 @@ const List = () => {
             <Breadcrumb />
 
             <div className="page-search-result">
-              {mockCard.map(card => {
+              {card?.results.map((item: any, i: React.Key | null | undefined) => {
                 return(
-                  <Card card={card} />
+                  <Card key={i} item={item} />
                 )
               })}
             </div>
@@ -64,4 +49,4 @@ const List = () => {
   )
 }
 
-export default List
+export default SearchResult

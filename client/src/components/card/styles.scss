@@ -6,6 +6,7 @@
   margin-bottom: 16px;
   border-bottom: 1px solid #eee;
   text-decoration: none;
+  color: #666;
 
   &:last-child {
     border-bottom: none;
@@ -27,10 +28,15 @@
       align-items: end;
 
       .price {
+        color: #333;
         font-size: 24px;
         line-height: 28px;
         grid-area: price;
         grid-row: 1;
+
+        .shipping-img {
+          margin-left: 12px;
+        }
       }
       
       .location {
