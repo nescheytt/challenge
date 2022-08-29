@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router-dom'
 
 // components
 import Layout from '../../components/layouts'
+import Home from '../home'
 import Breadcrumb from '../../components/breadcrumb'
 import Card from '../../components/card'
 
@@ -26,7 +27,11 @@ const SearchResult = () => {
 
   useEffect(() => {
     fetchPost()
- }, [search])
+  }, [search])
+
+  if (search.get('search') === '') {
+    return <Home />
+  }
 
   return (
     <Layout>
