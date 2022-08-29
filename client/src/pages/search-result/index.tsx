@@ -14,17 +14,17 @@ import '../../assets/scss/grid/col.scss'
 
 const SearchResult = () => {
   const [card, setCard] = useState<any>()
+  const [categories, setCategories] = useState<any>()
   const [search, setSearch] = useSearchParams()
 
-  useEffect(() => {
-    const fetchPost = async () => {
-       const response = await fetch(
-          `https://api.mercadolibre.com/sites/MLA/search?q=${search.get('search')}&limit=4`
-       );
-       const data = await response.json()
-       setCard(data)
-    }
+  const fetchPost = async () => {
+    const response = await fetch(`/api/items?q=${search.get('search')}`)
+    const data = await response.json()
+    setCard(data?.items)
+    setCategories(data?.categories)
+  }
 
+  useEffect(() => {
     fetchPost()
  }, [search])
 
@@ -33,10 +33,10 @@ const SearchResult = () => {
       <div className="container fluid">
         <div className="row">
           <div className="col-12">
-            <Breadcrumb />
+            <Breadcrumb categories={categories} />
 
             <div className="page-search-result">
-              {card?.results.map((item: any, i: React.Key | null | undefined) => {
+              {card?.map((item: any, i: React.Key) => {
                 return(
                   <Card key={i} item={item} />
                 )

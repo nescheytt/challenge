@@ -1,0 +1,17 @@
+.page-empty-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 100px 0px;
+
+  .empty-title {
+    font-size: 22px;
+    margin-bottom: 40px;
+    color: #666;
+  }
+
+  img {
+    max-width: 680px;
+  }
+}
